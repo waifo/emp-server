@@ -5,10 +5,10 @@ var mongojs = require('mongojs');
 
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
-var server=app.listen(process.env.port,function(req,res){
+// var server=app.listen(process.env.port,function(req,res){
    
-    console.log("Server started",process.env.port)
-})
+//     console.log("Server started",process.env.port)
+// })
 
 app.get('/getEmp',function(req,res){
     // res.setHeader('Access-Control-Allow-Origin', '*');
