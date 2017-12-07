@@ -7,6 +7,7 @@ var mongojs = require('mongojs');
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
 
 console.log("db",db)
+app.set('port', (process.env.PORT || 5000));
 
 app.get('/getEmp',function(req,res){
     // res.setHeader('Access-Control-Allow-Origin', '*');
@@ -39,7 +40,6 @@ app.post('/addEmp',function(req,res){
     });
     
     
-    var server=app.listen(process.env.port||3001,function(req,res){
-       
-        console.log("Server started",process.env.port|3001)
-    })
+    app.listen(app.get('port'), function() {
+        console.log('Node app is running on port', app.get('port'));
+         });
