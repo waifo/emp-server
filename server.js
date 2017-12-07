@@ -9,7 +9,7 @@ var server=app.listen(process.env.port||3000,function(req,res){
     console.log("Server started",process.env.port||3000)
 })
 
-app.get('/',function(req,res){
+app.get('/getEmp',function(req,res){
     db.Employess.find({},function (err, docs) {
         console.log(docs)
         res.send(docs);
