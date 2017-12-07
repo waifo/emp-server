@@ -16,6 +16,12 @@ app.get('/getEmp',function(req,res){
     })
 
 });
+app.get('/',function(req,res){
+    
+        console.log("Hello")
+        res.render("Hello Heroku");
+
+});
 
 app.post('/addEmp',function(req,res){
     // db.Employess.insert({
