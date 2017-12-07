@@ -11,7 +11,7 @@ var server=app.listen(process.env.port,function(req,res){
 })
 
 app.get('/getEmp',function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Origin', '*');
     db.Employess.find({},function (err, docs) {
         console.log(docs)
         res.send(docs);
