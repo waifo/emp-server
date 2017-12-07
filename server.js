@@ -17,7 +17,7 @@ app.get('/getEmp',function(req,res){
 
 });
 app.get('/',function(req,res){
-    
+    res.setHeader('Access-Control-Allow-Origin', '*');
         console.log("Hello")
         res.render("Hello Heroku");
 
