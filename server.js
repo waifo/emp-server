@@ -5,9 +5,9 @@ var mongojs = require('mongojs');
 
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
-// var server=app.listen(process.env.port||3000,function(req,res){
-//     console.log("Server started",process.env.port||3000)
-// })
+var server=app.listen(process.env.port||3000,function(req,res){
+    console.log("Server started",process.env.port||3000)
+})
 
 app.get('/getEmp',function(req,res){
     db.Employess.find({},function (err, docs) {
