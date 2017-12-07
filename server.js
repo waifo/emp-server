@@ -6,6 +6,7 @@ var mongojs = require('mongojs');
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
 var server=app.listen(process.env.port||3000,function(req,res){
+    res.setHeader('Access-Control-Allow-Origin', '*');
     console.log("Server started",process.env.port||3000)
 })
 
@@ -17,7 +18,7 @@ app.get('/getEmp',function(req,res){
 
 });
 app.get('/',function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    
         console.log("Hello")
         res.render("Hello Heroku");
 
