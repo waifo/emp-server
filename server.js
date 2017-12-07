@@ -20,7 +20,7 @@ app.get('/getEmp',function(req,res){
 app.get('/',function(req,res){
     
     console.log("Hello")
-    res.render("Hello Heroku");
+    res.send("Hello Heroku");
     
 });
 
