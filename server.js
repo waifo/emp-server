@@ -43,7 +43,7 @@ app.post('/addEmp',function(req,res){
         "gender":req.body.gender,
         "city":req.body.city}
         db.Employess.insert(data,function (err, docs) {
-            console.log(docs)
+            console.log("1 employee added")
         })
         // console.log("Req",data)
         res.send()
@@ -59,7 +59,7 @@ app.post('/updateEmp',function(req,res){
         "gender":req.body.gender,
         "city":req.body.city}
         db.Employess.update(myquery, data, function(err, res){
-
+            console.log("1 employee updated")
         })
         // console.log("Req",data)
         res.send()
@@ -67,17 +67,9 @@ app.post('/updateEmp',function(req,res){
     });
 app.post('/deleteEmp',function(req,res){
     var myquery={"id":req.body.id}
-    var data = {
-        "id":req.body.id,
-        "first_name":req.body.first_name,
-        "last_name":req.body.last_name,
-        "email":req.body.email,
-        "gender":req.body.gender,
-        "city":req.body.city}
-        db.Employess.delete(myquery, data, function(err, res){
-
+        db.Employess.delete(myquery,function(err, res){
+            console.log("1 employee deleted")
         })
-        // console.log("Req",data)
         res.send()
         
     });
