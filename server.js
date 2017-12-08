@@ -67,7 +67,7 @@ app.post('/updateEmp',function(req,res){
     });
 app.post('/deleteEmp',function(req,res){
     var myquery={"id":req.body.id}
-        db.Employess.delete(myquery,function(err, res){
+        db.Employess.remove(myquery,function(err, res){
             console.log("1 employee deleted")
         })
         res.send()
