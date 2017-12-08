@@ -10,7 +10,7 @@ console.log("db",db)
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/getEmp',function(req,res){
-    // res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
     db.Employess.find({},function (err, docs) {
         console.log(docs)
         res.send(docs);
