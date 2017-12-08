@@ -2,11 +2,15 @@
 var express=require('express');
 var app=express();
 var mongojs = require('mongojs');
+var bodyParser = require('body-parser');
+
 
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
 
 console.log("db",db)
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/getEmp',function(req,res){
@@ -26,6 +30,7 @@ app.get('/',function(req,res){
 
 app.post('/addEmp',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
+    var data = req.body.data;
     // db.Employess.insert({
         //     "id": "76-6720845",
         //     "first_name": "Rollin",
@@ -36,7 +41,8 @@ app.post('/addEmp',function(req,res){
     // },function (err, docs) {
         //     console.log(docs)
         // })
-        res.send("Req",req)
+        console.log("Req",data)
+        res.send("Req",data)
         
     });
     
