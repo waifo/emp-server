@@ -25,6 +25,7 @@ app.get('/',function(req,res){
 });
 
 app.post('/addEmp',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     // db.Employess.insert({
         //     "id": "76-6720845",
         //     "first_name": "Rollin",
@@ -35,7 +36,7 @@ app.post('/addEmp',function(req,res){
     // },function (err, docs) {
         //     console.log(docs)
         // })
-        console.log("Req",req)
+        res.send("Req",req)
         
     });
     
