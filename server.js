@@ -46,7 +46,7 @@ app.post('/addEmp',function(req,res){
             console.log(docs)
         })
         // console.log("Req",data)
-        res.send("Req",res)
+        res.send()
         
     });
     
