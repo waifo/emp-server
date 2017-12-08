@@ -42,11 +42,11 @@ app.post('/addEmp',function(req,res){
         "email":req.body.email,
         "gender":req.body.gender,
         "city":req.body.city}
-    db.Employess.insert(data,function (err, docs) {
+        db.Employess.insert(data,function (err, docs) {
             console.log(docs)
         })
         // console.log("Req",data)
-        // res.send("Req",data)
+        res.send("Req",res)
         
     });
     
