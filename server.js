@@ -58,7 +58,7 @@ app.post('/updateEmp',function(req,res){
         "email":req.body.email,
         "gender":req.body.gender,
         "city":req.body.city}
-        db.Employess.updateOne(myquery, data, function(err, res){
+        db.Employess.update(myquery, data, function(err, res){
 
         })
         // console.log("Req",data)
