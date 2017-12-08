@@ -35,19 +35,18 @@ app.get('/',function(req,res){
 
 app.post('/addEmp',function(req,res){
     //res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    var data = req.body.data;
-    // db.Employess.insert({
-        //     "id": "76-6720845",
-        //     "first_name": "Rollin",
-        //     "last_name": "Arrell",
-        //     "email": "rarrell0@linkedin.com",
-        //     "gender": "Male",
-    //     "city": "Mwaya"
-    // },function (err, docs) {
-        //     console.log(docs)
-        // })
-        console.log("Req",data)
-        res.send("Req",data)
+    var data = {
+        "id":req.body.id,
+        "first_name":req.body.first_name,
+        "last_name":req.body.last_name,
+        "email":req.body.email,
+        "gender":req.body.gender,
+        "city":req.body.city}
+    db.Employess.insert(data,function (err, docs) {
+            console.log(docs)
+        })
+        // console.log("Req",data)
+        // res.send("Req",data)
         
     });
     
