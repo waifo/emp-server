@@ -49,6 +49,22 @@ app.post('/addEmp',function(req,res){
         res.send()
         
     });
+app.post('/updateEmp',function(req,res){
+    var myquery={"id":req.body.id}
+    var data = {
+        "id":req.body.id,
+        "first_name":req.body.first_name,
+        "last_name":req.body.last_name,
+        "email":req.body.email,
+        "gender":req.body.gender,
+        "city":req.body.city}
+        db.Employess.updateOne(myquery, data, function(err, res){
+
+        })
+        // console.log("Req",data)
+        res.send()
+        
+    });
     
     
     app.listen(app.get('port'), function() {
