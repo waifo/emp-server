@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', (process.env.PORT || 5000));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    next();
 });
 
 app.get('/getEmp',function(req,res){
