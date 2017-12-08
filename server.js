@@ -29,7 +29,7 @@ app.get('/',function(req,res){
 });
 
 app.post('/addEmp',function(req,res){
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     var data = req.body.data;
     // db.Employess.insert({
         //     "id": "76-6720845",
