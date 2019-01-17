@@ -2,7 +2,8 @@
 var express=require('express');
 var app=express();
 var mongojs = require('mongojs');
-const axios= require('axios')
+const axios= require('axios');
+const jquery = require('jquery');
 var bodyParser = require('body-parser');
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
@@ -147,17 +148,30 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/',function(req,res){
+app.get('/',function(req,res,next){
     let myUrl=""
     console.log("params",req.url)
     if(req.url==='/' ){
         res.send("server for emp")
+        next()
     }
     else{
         myUrl=req.url.split("?url=",2)[1]
         console.log("myUrl",myUrl)
-        axios.get(myUrl)
-            .then((data)=>{res.send(data.data)})  
+        axios({
+            url:myUrl,
+            headers:{
+                'Access-Control-Allow-Origin':'*'
+            }
+        })
+            .then((data)=>{
+                res.send(data.data);
+                next()
+            })
+            .catch((error)=>{
+                res.send(error);
+                next()
+            })  
     }
    
 });
