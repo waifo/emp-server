@@ -2,6 +2,7 @@
 var express=require('express');
 var app=express();
 var mongojs = require('mongojs');
+const axios= require('axios')
 var bodyParser = require('body-parser');
 
 const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeeslist', ['Employess']); 
@@ -147,7 +148,9 @@ app.use(function(req, res, next) {
 });
 
 app.get('/',function(req,res){
-    res.send(myData);   
+    console.log("params",req.query)
+    axios.get(req.query.url)
+        .then((data)=>res.send(data.data))  
 });
 
 app.get('/getEmp',function(req,res){
