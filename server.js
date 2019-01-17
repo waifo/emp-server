@@ -31,7 +31,10 @@ app.get('/',function(req,res,next){
         myUrl=req.url.split("?url=",2)[1]
         console.log("myUrl",myUrl)
         axios({
-            url:myUrl
+            url:myUrl,
+            headers:{
+                'Host': 'contactus.kglobalservices.com'
+            }
         })
             .then((data)=>{
                 res.send(data.data);
