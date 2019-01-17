@@ -148,8 +148,11 @@ app.use(function(req, res, next) {
 });
 
 app.get('/',function(req,res){
-    console.log("params",req.query)
-    axios.get(req.query.url)
+    let myUrl=""
+    console.log("params",req.url)
+    myUrl=req.url.split("?url=",2)[1]
+    console.log("myUrl",myUrl)
+    axios.get(myUrl)
         .then((data)=>res.send(data.data))  
 });
 
