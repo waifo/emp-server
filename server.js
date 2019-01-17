@@ -150,11 +150,16 @@ app.use(function(req, res, next) {
 app.get('/',function(req,res){
     let myUrl=""
     console.log("params",req.url)
-    myUrl=req.url.split("?url=",2)[1]
-    console.log("myUrl",myUrl)
-    res.send(myUrl)
-    // axios.get(myUrl)
-    //     .then((data)=>{res.send(data.data)})  
+    if(req.url==='/' ){
+        res.send("server for emp")
+    }
+    else{
+        myUrl=req.url.split("?url=",2)[1]
+        console.log("myUrl",myUrl)
+        axios.get(myUrl)
+            .then((data)=>{res.send(data.data)})  
+    }
+   
 });
 
 app.get('/getEmp',function(req,res){
