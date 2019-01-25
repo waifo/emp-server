@@ -11,20 +11,20 @@ const db = mongojs('mongodb://admin:admin@ds133166.mlab.com:33166/employeesli
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
-app.options('*', cors())
+// app.use(cors())
+// app.options('*', cors())
 app.set('port', (process.env.PORT || 5000));
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin");
-//     next();
-// });
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin");
+    next();
+});
 
 app.get('/',function(req,res,next){
     let myUrl=""
     console.log("params",req.url)
     if(req.url==='/' ){
-        res.send("server for emp")
+        res.send("Kelloggs node server is up !!!")
         next()
     }
     else{
@@ -33,7 +33,7 @@ app.get('/',function(req,res,next){
         axios({
             url:myUrl,
             headers:{
-                'Host': 'contactus.kglobalservices.com'
+                'Access-Control-Allow-Origin':'*'
             }
         })
             .then((data)=>{
